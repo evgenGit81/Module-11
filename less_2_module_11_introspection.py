@@ -12,11 +12,20 @@ def introspection_info(obj):
     scnd = {'type': type(obj)}
     thd = {'dir': dir(obj)}
     fth = {'hasattr': hasattr(obj, 'angle')}
-    sx = {'getmodule': inspect.getmodule(obj)}
+    sx = {'module': inspect.getmodule(obj)}
+    svn = {'classes': inspect.getmembers(obj, inspect.isclass)}
+    edth = {'functions': inspect.getmembers(obj, inspect.isfunction)}
+    elv = {'Methods': inspect.getmembers(obj, inspect.ismethod)}
     for_res = [frst, scnd, thd, fth, sx]
     for i in range(len(for_res)):
         result.update(for_res[i])
     pprint(result)
+    print('*-' * 20)
+    pprint(svn)
+    print('*-' * 20)
+    pprint(edth)
+    print('*-' * 20)
+    pprint(elv)
 
 if __name__ == '__main__':
     what_a_obj = ''
