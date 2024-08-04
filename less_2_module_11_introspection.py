@@ -16,16 +16,10 @@ def introspection_info(obj):
     svn = {'classes': inspect.getmembers(obj, inspect.isclass)}
     edth = {'functions': inspect.getmembers(obj, inspect.isfunction)}
     elv = {'Methods': inspect.getmembers(obj, inspect.ismethod)}
-    for_res = [frst, scnd, thd, fth, sx]
-    for i in range(len(for_res)):
+    for_res = [frst, scnd, thd, fth, sx, svn, edth, elv]
+     for i in range(len(for_res)):
         result.update(for_res[i])
-    pprint(result)
-    print('*-' * 20)
-    pprint(svn)
-    print('*-' * 20)
-    pprint(edth)
-    print('*-' * 20)
-    pprint(elv)
+    return result
 
 if __name__ == '__main__':
     what_a_obj = ''
@@ -35,19 +29,19 @@ if __name__ == '__main__':
                            "2 - urllib3, 3 - requests, 4 - pprint, 5 - inspect: ")
         if what_a_obj == '1':
             obj = numpy
-            introspection_info(obj)
+            pprint(introspection_info(obj))
         elif what_a_obj == '2':
             obj = urllib3
-            introspection_info(obj)
+            pprint(introspection_info(obj))
         elif what_a_obj == '3':
             obj = requests
-            introspection_info(obj)
+            pprint(introspection_info(obj))
         elif what_a_obj == '4':
             obj = pprint
-            introspection_info(obj)
+            pprint(introspection_info(obj))
         elif what_a_obj == '5':
             obj = inspect
-            introspection_info(obj)
+            pprint(introspection_info(obj))
         else:
             for i in ch:
                 if what_a_obj != 'stop' and what_a_obj != i:
